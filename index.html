@@ -1,13 +1,455 @@
 <!DOCTYPE html>
-<html style="background-color:Gray;">
-<head>
-  <title>My Page Title</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-</head>
-<body>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/x-icon" href="/images/favico/favicon.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jxins – Ruixin&nbsp;Shi’s Blog & Portfolio</title>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+    <!-- ---------------- Base styles ---------------- -->
+    <style>
+      :root {
+        --accent: #6bb59f;         
+        --text-dark: #222;
+        --text-muted: #555;
+        --bg-light: #fafafa;
+        --bg-section: #f1f1f1;
+        --border-radius: 8px;
+      }
 
-</body>
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        background: var(--bg-light);
+        color: var(--text-dark);
+        scroll-behavior: smooth;
+      }
+
+      /* ------------ Header ------------ */
+      header{
+        position:fixed;
+        inset:0 0 auto 0;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:1rem 2rem;
+        background: rgba(255,255,255,.50);
+        backdrop-filter:blur(6px);
+        box-shadow:0 2px 6px rgba(0,0,0,.08);z-index:100
+      }
+
+      header h1{
+        margin:0;
+        font-size:1.25rem;
+        font-weight:600;
+        color:#111
+      }
+
+      nav a{
+        color:#333;
+        margin-left:1.5rem;
+        text-decoration:none;
+        position:relative;
+        font-weight:500
+      }
+
+      nav a::after{
+        content:"";position:absolute;
+        left:0;
+        right:0;
+        bottom:-3px;
+        height:2px;
+        background:#333;
+        transform:scaleX(0);
+        transition:transform .25s ease
+      }
+
+      nav a:hover::after{
+        transform:scaleX(1)
+      }
+
+      /* ------------ Utility container ------------ */
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* ------------ Hero ------------ */
+      #hero{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        height:55vh;
+        min-height:300px;
+        margin-top:72px;
+        
+        background:linear-gradient(
+          60deg,
+          #ff7b7b,
+          #ffd36b,
+          #6bffcf,
+          #6b83ff,
+          #ff6bf2
+        );
+        background-size:
+          600% 600%;animation:gradient 30s ease-in-out infinite; 
+        padding:
+          1rem;border-bottom:4px solid #e5e5e5
+      }
+
+      @keyframes gradient{
+        0%{background-position:0 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0 50%}
+      }
+
+      #hero h2{
+        margin:.5rem 0;
+        font-size:2.1rem;
+        letter-spacing:.5px;
+        color:#111
+      }
+
+      #hero a{
+        margin-top:1.25rem;
+        display:inline-block;
+        padding:.6rem 1.3rem;
+        border:2px solid #333;
+        border-radius:4px;
+        font-weight:600;
+        text-decoration:none;
+        color:#333;transition:background .3s,color .3s
+      }
+
+      #hero a:hover{
+        background:#333;
+        color:#fff
+      }
+
+      /* ------------ About section ------------ */
+      #about {padding:4rem 1rem;background: var(--bg-section); }
+      #about .about-flex {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      .about-text {margin-top: 6rem; flex: 1 1 300px; }
+      .about-text h2 {
+        margin-top: 0;
+        font-size: 3rem;
+      }
+      .about-text p { color: var(--text-muted); line-height: 1.6; }
+
+      .about-links {
+        margin-top: 3rem;
+      }
+      .about-links a {
+        margin-right: 1.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--accent);
+      }
+      .about-links a:hover { text-decoration: underline; }
+
+      .about-photo {
+        flex: 0 0 350px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        transition: transform 0.25s;
+      }
+      .about-photo:hover { transform: translateY(-4px); }
+      .about-photo img { width: 100%; height: auto; display: block; }
+
+      /* ------------ Instagram ------------ */
+      #instagram{padding:3rem 3rem;background:#ffffff}
+
+      #instagram h2 {
+        font-size: 2.5rem;   /* <— adjust to taste (rem / px / vw) */
+      }
+
+      /* link (no browser underline) */
+      #instagram h2 a {
+        --line: #111;                 /* 👈 choose your accent once */
+        color: var(--line);
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+        font-weight: 800;
+        transition: color .25s;
+      }
+
+      /* custom underline (starts collapsed) */
+      #instagram h2 a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 2px;
+        background: var(--line);         /* same colour as text */
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .25s;
+      }
+
+      /* hover → grow the line */
+      #instagram h2 a:hover::after {
+        transform: scaleX(1);
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+      }
+      .gallery a {
+        position: relative;
+        padding-top: 100%;
+        background: #eee;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        transition: transform 0.25s;
+      }
+      .gallery a:hover { transform: translateY(-4px); }
+      .gallery img {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+      }
+
+      /* ------------ Footer ------------ */
+      footer{
+        background:#333;
+        color:#eee;
+        padding:2.5rem 0;
+        font-size:.95rem;
+      }
+      footer .footer-wrap{
+        max-width:1000px;
+        margin:0 auto;
+        padding:0 1.5rem;
+        display:flex;
+        flex-wrap:wrap;
+        gap:3rem;
+        justify-content:space-between;
+      }
+      footer h3{
+        margin-top:0;
+        font-size:1.1rem;
+      }
+      footer a{
+        color:#9be2d0;
+        text-decoration:none;
+      }
+      footer a:hover{ text-decoration:underline; }
+
+      /* ── Lightbox for enlarged images ───────────────────────── */
+      .lightbox{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.85);
+        display:none;              /* hidden by default */
+        align-items:center;
+        justify-content:center;
+        cursor:zoom-out;
+        z-index:200;
+      }
+      .lightbox img{
+        max-width:90%;
+        max-height:90%;
+        border-radius:8px;
+        box-shadow:0 4px 14px rgba(0,0,0,.4);
+      }
+
+      /* ------------ Link cards ------------ */
+
+
+      #links { padding: 4rem 0; }
+      .link-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);   /* 3 equal parts  */
+        gap: 2rem;
+      }
+
+      /* enlarge each card */
+      .link-cards a {
+        width: 100%;               /* ignore fixed width */
+        height: 160px;             /* taller card        */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--accent);
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--accent);
+        transition: background 0.25s, color 0.25s;
+      }
+      .link-cards a:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      /* ------------ Responsive tweaks ------------ */
+      @media (max-width: 768px) {
+        #hero h2 { font-size: 1.7rem; }
+        .link-cards a { width: 150px; height: 100px; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- ===== Header ===== -->
+    <header>
+      <h1>jxins – Ruixin's Blog</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ===== Hero ===== -->
+      <section id="hero">
+        <h2>Welcome to My World</h2>
+        <a href="/blog">Explore the Blog</a>
+      </section>
+
+      <!-- ===== About ===== -->
+      <section id="about" class="container">
+        <div class="about-flex">
+          <!-- text -->
+          <div class="about-text">
+            <h2>About Ruixin Shi</h2>
+            <p>
+              Hi! I'm <strong>Ruixin Shi</strong>, a computer‑science enthusiast passionate
+              about blending mobile development, AI/ML, and creative coding. I build
+              offline‑ready chat apps in Flutter, prototype fitness experiences with
+              on‑device pose estimation, and share what I learn along the way. This site
+              is my digital playground—stay a while and explore!
+            </p>
+
+            <nav class="about-links">
+              <a href="/resume.html">Résumé</a>
+              <a href="https://www.linkedin.com/in/ruixin-shi-xins21" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://github.com/Ruixin-J-Shi"      target="_blank" rel="noopener">GitHub</a>
+            </nav>
+          </div>
+
+          <!-- portrait -->
+          <a class="about-photo"
+             href="https://instagram.com/yourhandle"
+             target="_blank" rel="noopener">
+            <!-- replace with your own portrait -->
+            <img src="portrait.png" alt="Portrait of Ruixin Shi">
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== Instagram ===== -->
+      <section id="instagram" class="container">
+        <h2><a href="https://www.instagram.com/j_xins" target="_blank">@jxins</a></h2>
+
+        <div class="gallery">
+          
+        </div>
+      </section>
+
+      <!--===== External Links =====
+      <section id="links" class="container">
+        <div class="link-cards">
+          <a href="/resume.html">Résumé</a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/yourusername"     target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section> -->
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+      <div class="footer-wrap">
+        <div>
+          <h3>jxins</h3>
+          <p>© 2025 Ruixin Shi</p>
+        </div>
+
+
+        <div>
+          <h3>Contact</h3>
+          <p>xxruixin@gmail.com</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+      <img src="" alt="enlarged">
+    </div>
+
+    <!-- Lightbox script -->
+    <script>
+      // simple vanilla‑JS lightbox
+      const lb   = document.getElementById('lightbox');
+      const lbImg= lb.querySelector('img');
+
+      document.querySelectorAll('.gallery a img').forEach(img=>{
+        img.addEventListener('click', e=>{
+          e.preventDefault();          // keep the link from opening
+          lbImg.src = img.src;         // show clicked thumbnail
+          lb.style.display = 'flex';
+        });
+      });
+
+      lb.addEventListener('click', () => lb.style.display = 'none');
+    </script>
+
+    <script>
+      (async () => {
+        const gallery = document.getElementById('gallery');
+
+        // fetch the /images/ directory index generated by nginx
+        const html = await fetch('/images/').then(r => r.text());
+
+        // parse it; extract hrefs that end with .jpg/.jpeg/.png/.gif (case‑insensitive)
+        const doc  = new DOMParser().parseFromString(html, 'text/html');
+        const imgs = Array.from(doc.querySelectorAll('a'))
+                          .map(a => a.getAttribute('href'))
+                          .filter(href => /\.(jpe?g|png|gif)$/i.test(href));
+
+        // build the gallery
+        imgs.forEach(file => {
+          const link = document.createElement('a');
+          link.href      = '/images/' + file;     // link to full‑size image
+          link.target    = '_blank';              // open IG‑style full image in new tab
+          link.rel       = 'noopener';
+
+          const thumb    = document.createElement('img');
+          thumb.src      = '/images/' + file;
+          thumb.alt      = file;
+
+          link.appendChild(thumb);
+          gallery.appendChild(link);
+        });
+
+        // ========= optional: plug thumbnails into the light‑box =============
+        document.querySelectorAll('#gallery img').forEach(img=>{
+          img.addEventListener('click', e=>{
+            e.preventDefault();
+            lbImg.src = img.src;          // lb / lbImg come from the lightbox script
+            lb.style.display='flex';
+          });
+        });
+      })();
+      </script>
+  </body>
 </html>

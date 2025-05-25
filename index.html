@@ -360,7 +360,7 @@
       <section id="instagram" class="container">
         <h2><a href="https://www.instagram.com/j_xins" target="_blank">@jxins</a></h2>
 
-        <div class="gallery">
+        <div id="gallery" class="gallery">
           
         </div>
       </section>
@@ -398,18 +398,11 @@
 
     <!-- Lightbox script -->
     <script>
-      // simple vanilla‑JS lightbox
-      const lb   = document.getElementById('lightbox');
-      const lbImg= lb.querySelector('img');
 
-      document.querySelectorAll('.gallery a img').forEach(img=>{
-        img.addEventListener('click', e=>{
-          e.preventDefault();          // keep the link from opening
-          lbImg.src = img.src;         // show clicked thumbnail
-          lb.style.display = 'flex';
-        });
-      });
+      const lb    = document.getElementById('lightbox');
+      const lbImg = lb.querySelector('img');
 
+      /* click overlay to close */
       lb.addEventListener('click', () => lb.style.display = 'none');
     </script>
 
@@ -441,13 +434,13 @@
           gallery.appendChild(link);
         });
 
-        // ========= optional: plug thumbnails into the light‑box =============
-        document.querySelectorAll('#gallery img').forEach(img=>{
-          img.addEventListener('click', e=>{
-            e.preventDefault();
-            lbImg.src = img.src;          // lb / lbImg come from the lightbox script
-            lb.style.display='flex';
-          });
+        // ========= plug thumbnails into the light‑box =============
+        gallery.addEventListener('click', e => {
+          const img = e.target.closest('img');
+          if (!img) return;               // clicked gap, not an image
+          e.preventDefault();             // stay on page
+          lbImg.src = img.src;            // set overlay src
+          lb.style.display = 'flex';      // show overlay
         });
       })();
       </script>

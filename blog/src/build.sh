@@ -48,12 +48,7 @@ for md in "$POST_SRC"/*.md; do
 
     printf '<article>%s</article>\n' "$body"
 
-    # ----- Back‑to‑Blog link --------------------------------------
-    cat <<'HTML'
-<nav class="back-to-blog-wrapper">
-  <a class="back-to-blog" href="/blog/">&larr; Back&nbsp;to&nbsp;Blog</a>
-</nav>
-HTML
+
 
     cat "$FOOTER"
   } > "$dest"

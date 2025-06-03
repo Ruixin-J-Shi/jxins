@@ -18,7 +18,7 @@ Includes:
 ## Table of Contents
 
 1. [Demo](#demo)
-2. [Repository Structure](#Repository Structure)
+2. [Repository Structure](#repository-structure) 
 3. [Getting Started](#getting-started)  
 4. [Future Work](#future-work)  
 5. [License](#license)  

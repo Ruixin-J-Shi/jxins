@@ -17,28 +17,21 @@ Includes:
 
 ## Table of Contents
 
-1. [Demo](#demo)  
-2. [Repository Structure](#repository-structure)  
+1. [Demo](#demo)
+2. [Repository Structure](#Repository Structure)
 3. [Getting Started](#getting-started)  
-   - [Prerequisites](#prerequisites)  
-   - [Local Preview](#local-preview)  
-4. [Page Overviews](#page-overviews)  
-   - [index.html (Homepage)](#indexhtml-homepage)  
-   - [resume.html (Résumé/CV)](#resumehtml-r%C3%A9sum%C3%A9cv)  
-5. [Customization](#customization)  
-6. [Responsive Behavior](#responsive-behavior)  
-7. [Future Work](#future-work)  
-8. [License](#license)  
+4. [Future Work](#future-work)  
+5. [License](#license)  
 
 ---
 
 ## Demo
 
 > To see the site live, point your browser to the root folder on your static web server.  
-> For example, if hosting under `https://your-domain.com/`, visit:
+> visit:
 >
 > ```
-> https://your-domain.com/index.html
+> https://jxins.duckdns.org
 > ```
 
 ---
@@ -55,6 +48,9 @@ jxins-personal-site/
 ├── index.html # Homepage (Blog & Portfolio) – Blog under construction
 ├── resume.html # HTML résumé/CV page
 └── README.md # This documentation
+
+
+## Getting-started
 
 No build tools or dependencies are required. You only need:
 

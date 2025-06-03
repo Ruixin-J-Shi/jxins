@@ -8,6 +8,38 @@
 
     <!-- ---------------- Base styles ---------------- -->
     <style>
+
+    @media (max-width: 768px){
+
+      #hero{
+        height: 45vh;           /* was 55 vh                           */
+        min-height: 260px;      /* optional, keeps it from collapsing  */
+        padding: 1.8rem; 
+        padding-bottom: 0;  
+      }
+
+      /* keep the headline readable but smaller */
+      #hero h2{ font-size: 1.8rem; }
+
+      /* stack portrait */
+      #about {margin-bottom: -3rem; padding:2rem 1rem;background: var(--bg-light); }
+
+      .about-photo{align-items:center; }
+
+      /* typography */
+      #about h2{                           /* or .about-text h2   */
+        font-size: 2.5rem;                 /* smaller on mobile   */
+        line-height: 1.2;
+      }
+      
+      .about-text p { font-size:1rem; line-height:1.5; }
+
+      /* link list */
+      .about-links{ margin-top:2rem; display:flex;  justify-content:center; }
+      .about-links a{ margin:0; }
+
+    }
+
       :root {
         --accent: #6bb59f;         
         --text-dark: #222;
@@ -86,7 +118,7 @@
         text-align:center;
         height:55vh;
         min-height:300px;
-        margin-top:72px;
+        margin-top:59px;
         
         background:linear-gradient(
           60deg,
@@ -132,19 +164,23 @@
       }
 
       /* ------------ About section ------------ */
-      #about {padding:2rem 1rem;background: var(--bg-light); }
+      #about {margin-top: 3rem; padding:2rem 1rem;background: var(--bg-light); }
       #about .about-flex {
         display: flex;
         gap: 2rem;
         align-items: flex-start;
         flex-wrap: wrap;
       }
-      .about-text {margin-top: 6rem; flex: 1 1 300px; }
+      .about-text {flex: 1 1 300px; }
       .about-text h2 {
         margin-top: 0;
         font-size: 3rem;
       }
       .about-text p { color: var(--text-muted); line-height: 1.6; }
+
+      .about-flex {                 
+        align-items: flex-start;    
+      }
 
       .about-links {
         margin-top: 3rem;
@@ -169,7 +205,7 @@
       .about-photo img { width: 100%; height: auto; display: block; }
 
       /* ------------ Instagram ------------ */
-      #instagram{padding:3rem 5rem;background:var(--light-gray);}
+      #instagram{margin: 1rem auto 4rem; padding:auto ;background:#ffffff;}
 
       #instagram h2 {
         font-size: 2.5rem;   /* <— adjust to taste (rem / px / vw) */
@@ -333,11 +369,17 @@
           <div class="about-text">
             <h2>About Ruixin Shi</h2>
             <p>
-              Hi! I'm <strong>Ruixin Shi</strong>, a computer‑science enthusiast passionate
-              about blending mobile development, AI/ML, and creative coding. I build
-              offline‑ready chat apps in Flutter, prototype fitness experiences with
-              on‑device pose estimation, and share what I learn along the way. This site
-              is my digital playground—stay a while and explore!
+              Hi! I'm <strong>Ruixin Shi</strong>, a computer‑science enthusiast passionate about web and mobile development, AI/ML, and game development through creative coding. I have built offline‑ready chat apps in Flutter, prototyped fitness experiences with on‑device pose estimation, and worked on many other exciting projects.
+              
+              <br>
+              <br>
+
+              With a bachelor’s degree in Computer Science from Boston University and as a current master’s student in Computer Science at Northeastern University, I am excited to explore the world of computing and see what I can create!
+              
+              <br>
+              <br>
+              
+              This site is my digital playground. Since you’re here already, why not check out my blog? I’m sure you’ll find something interesting!
             </p>
 
             <nav class="about-links">
@@ -349,7 +391,7 @@
 
           <!-- portrait -->
           <a class="about-photo"
-             href="https://www.instagram.com/j_xins"
+             href="https://www.linkedin.com/in/ruixin-shi-xins21/recent-activity/all/"
              target="_blank" rel="noopener">
             <!-- replace with your own portrait -->
             <img src="portrait.png" alt="Portrait of Ruixin Shi">

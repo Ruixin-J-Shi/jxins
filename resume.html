@@ -1,45 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="/images/favico/favicon.ico">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ruixin ‑ Résumé</title>
-  <style>
-    /* inherit look & feel */
-    html,body{margin:0;padding:0;height:100%;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#c2f2ea;color:#222;overflow-x:hidden}
-    header{position:fixed;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(255,255,255,.40);backdrop-filter:blur(6px);box-shadow:0 2px 6px rgba(0,0,0,.08);z-index:100}
-    header h1{margin:0;font-size:1.1rem;font-weight:600;color:#111}
-    nav a{color:#333;margin-left:1.5rem;text-decoration:none;position:relative;font-weight:500}
-    nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:#333;transform:scaleX(0);transition:transform .25s ease}
-    nav a:hover::after{transform:scaleX(1)}
+  <link rel="icon" href="/images/favico/favicon.ico" />
+  <title>Ruixin Shi — Résumé</title>
 
-    main{padding:6rem 1rem 2rem;max-width:1000px;margin:0 auto}
-    .viewer{width:100%;height:90vh;border:none;box-shadow:0 4px 12px rgba(0,0,0,.1)}
-    .download{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-weight:600;text-decoration:none;color:#333;border:2px solid #333;border-radius:6px;padding:.4rem 1rem;transition:background .3s,color .3s}
-    .download:hover{background:#333;color:#fff}
-    .download svg{width:18px;height:18px;fill:currentColor}
+  <style>
+    /* ─── Reset & Base Styles ───────────────────────────────────────── */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #fafafa;
+      color: #222;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    h1, h2, h3 {
+      margin: 0;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid #666;
+      padding-bottom: 0.25rem;
+    }
+    h3 {
+      font-size: 1.0rem;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+    small {
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    /* ─── Fixed Header / Navigation ───────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.5rem;
+      background: rgba(255,255,255,0.40);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #111;
+      margin: 0;
+    }
+
+    header nav a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+      position: relative;
+    }
+
+    header nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -3px;
+      height: 2px;
+      background: #333;
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+    }
+
+    header nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+
+    /* ─── CV Header (Photo, Name, Contact) ────────────────────────── */
+    .cv-header {
+      text-align: center;
+      margin-top: 4.5rem; /* push below fixed header */
+      padding: 1.5rem 1rem 0;
+    }
+    .cv-header .avatar {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 0.75rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #333;
+      background: #fff;
+    }
+    .cv-header .avatar img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .cv-header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.25rem;
+      color: #111;
+    }
+    .cv-header p {
+      font-size: 0.95rem;
+      margin: 0;
+      color: #333;
+    }
+
+    /* ─── Main Container & Two‐Column Layout ───────────────────────── */
+    main {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+    /* On mobile, collapse to one column */
+    @media (max-width: 768px) {
+      main {
+        display: block;
+        padding-top: 1rem;
+      }
+    }
+
+    /* ─── Sidebar (Left Column) ───────────────────────────────────── */
+    .sidebar {
+      /* optional color */
+    }
+    .sidebar h2 {
+      margin-top: 0; 
+    }
+    .sidebar h3 {
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .sidebar p, .sidebar li {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    /* ─── Content (Right Column) ─────────────────────────────────── */
+    .content section {
+      margin-bottom: 2rem;
+    }
+    .content h2 {
+      margin-top: 0; /* keep consistent */
+    }
+    .content h3 {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .content p, .content li {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    /* ─── Download Button ─────────────────────────────────────────── */
+    .download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #333;
+      border: 2px solid #333;
+      border-radius: 6px;
+      padding: 0.4rem 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .download:hover {
+      background: #333;
+      color: #fff;
+    }
+    .download svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+     /* ─── Hidden/shown classes for mobile/desktop switching ───────── */
+    .desktop-only { display: none; }
+    .mobile-only { display: none; }
+
+    @media (min-width: 769px) {
+      /* On desktop/tablet: show sidebar button, hide bottom button */
+      .desktop-only { display: inline-flex; }
+      .mobile-only  { display: none; }
+    }
+    @media (max-width: 768px) {
+      /* On mobile: hide sidebar button, show bottom button */
+      .sidebar .desktop-only { display: none; }
+      .mobile-only  { display: inline-flex; 
+                      margin: 2rem auto; 
+                      text-align: center; 
+                      justify-content: center; 
+                    }
+    }
   </style>
 </head>
+
 <body>
+  <!-- Fixed Header / Nav -->
   <header>
-    <nav>    
     <h1><a href="/">jxins — Résumé</a></h1>
-    </nav>
     <nav>
       <a href="/">Home</a>
       <a href="/blog">Blog</a>
     </nav>
   </header>
 
+  <!-- CV Header (Photo, Name, Contact) -->
+  <div class="cv-header">
+    <div class="avatar">
+      <!-- Replace "/me/photo.jpg" with your actual photo path -->
+      <img src="portrait.png" alt="Photo of Ruixin Shi">
+    </div>
+    <h1>Ruixin Shi</h1>
+    <p><a href="mailto:xxruixin@gmail.com">xxruixin@gmail.com</a> | 617-784-1401 | Seattle, WA</p>
+  </div>
+
+  <!-- Main Two‐Column Grid -->
   <main>
-    <!-- embedded PDF -->
-    <iframe class="viewer" src="/resume.pdf"></iframe>
-    <!-- download link -->
-    <a class="download" href="/resume.pdf" download>
-      Download PDF
-      <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v5h4.66V9h3.84L12 2z"/></svg>
-    </a>
+    <!-- ─── Left Sidebar ────────────────────────────────────── -->
+    <div class="sidebar">
+      <!-- Skills Section -->
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Programming:</strong> Python, Java, C, C#, JavaScript, TypeScript, Ocaml, Flutter</li>
+        <li><strong>Tools &amp; Frameworks:</strong> Git, MySQL, JSON, React</li>
+      </ul>
+
+      <!-- Education Section -->
+      <h2>Education</h2>
+      <div>
+        <h3>Boston University</h3>
+        <small>Sep 2020 – May 2024<br>
+        <em>Bachelor of Arts in Computer Science</em></small>
+      </div>
+      <div style="margin-top:1rem;">
+        <h3>Northeastern University</h3>
+        <small>May 2024 – Present<br>
+        <em>Master of Computer Science</em></small>
+      </div>
+      <div>
+        <p style="font-size:0.90rem; margin-top:1rem;">
+          <strong><em>Relevant Coursework:</em></strong><br>
+          Data Structures, Analysis of Algorithms, Software Engineering, Networking Essentials, Programming Languages, Artificial Intelligence, Computer Graphics, Operating System.
+        </p>
+      </div>
+
+      <!-- Download Button below Education -->
+      <a class="download desktop-only" href="/resume.pdf" download>
+        Download PDF
+        <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4z M5 20h14v-2H5z"/></svg>
+      </a>
+    </div>
+
+    <!-- ─── Right Content ───────────────────────────────────── -->
+    <div class="content">
+      <!-- Project Experience -->
+      <section>
+        <h2>Project Experience</h2>
+        <ul>
+          <li>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; font-weight: 600;">Interpreter Project</h3>
+              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+                <small><em>Boston University</em> <br> Jan 2022 – May 2022</small>
+              </div>
+            </div>
+            <ul>
+              <li>Developed an interpreter (in Ocaml) with a full parser system that lets users create their own DSL.</li>
+              <li>Designed and implemented core runtime logic, AST traversal, and error reporting.</li>
+            </ul>
+          </li>
+          <li>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; font-weight: 600;">Auto Chess Agent</h3>
+              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+                <small><em>Boston University</em> <br> Jan 2023 – May 2023</small>
+              </div>
+            </div>
+            <ul>
+              <li>Built a modular auto-chess AI agent in Java using Sepia (open-source framework).</li>
+              <li>Designed neural-network topology, feature extraction, and reward functions for the chess AI.</li>
+            </ul>
+          </li>
+          <li>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; font-weight: 600;">Information Website of Student Roster</h3>
+              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+                <small><em>Boston University</em> <br> May 2023 – Jun 2023</small>
+              </div>
+            </div>
+            <ul>
+              <li>Created a React web app that fetched current student data via a JSON API and displayed roster info.</li>
+              <li>Styled components with HTML/CSS/TypeScript; integrated the API on the frontend.</li>
+            </ul>
+          </li>
+          <li>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; font-weight: 600;">FIFOs Scheduler OS on Linux</h3>
+              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+                <small><em>Boston University</em> <br> Sep 2023 – Jan 2024</small>
+              </div>
+            </div>
+            <ul>
+              <li>Implemented a protected-mode, multithreaded OS kernel in C running under Linux (via GRUB).</li>
+              <li>Scheduled simulated threads in FIFO order; displayed system information through GRUB menu.</li>
+            </ul>
+          </li>
+          <li>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; font-weight: 600;">Microcontroller Game w/ Gesture Recognition</h3>
+              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+                <small><em>Boston University</em> <br> Jan 2024 – May 2024</small>
+              </div>
+            </div>
+            <ul>
+              <li>Built an Arduino-based microcontroller game using ArduCam for hand-gesture input.</li>
+              <li>Enabled real-time gesture control so users could play the mini-game on multiple Arduino modules.</li>
+            </ul>
+          </li>
+          <li>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; font-weight: 600;">UnWire – Mobile App for Local Network Chat</h3>
+              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+                <small><em>Northeastern University</em> <br> Sep 2024 – Dec 2024</small>
+              </div>
+            </div>
+            <ul>
+              <li>Developed core app structure in Flutter; managed real-time P2P chat via Bluetooth/Wi-Fi modules.</li>
+              <li>Led a small dev team and oversaw promotion/UX for the application.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Research Experience -->
+      <section>
+        <h2>Research Experience</h2>
+        <ul>
+          <li>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; font-weight: 600;">Research Assistant</h3>
+              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+                <small><em>Dept. of Biology - Boston University</em> <br> May 2023 – May 2024</small>
+              </div>
+            </div>
+            <ul>
+              <li>Worked under Professor Jen-Wei Lin to analyze experimental data and produce publication-quality plots.</li>
+              <li>Applied custom filters and clustering methods to large biological datasets using Python tools.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Activity Experience -->
+      <section>
+        <h2>Activity Experience</h2>
+        <ul>
+          <li>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; font-weight: 600;">Graphic Coordinator</h3>
+              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+                <small><em>BUTV10 - Boston University</em> <br> Aug 2021 – May 2024</small>
+              </div>
+            </div>
+            <ul>
+              <li>Served as Graphic Coordinator: collaborated between departments and created social-media graphics.</li>
+              <li>Arranged display cases and assisted new-program shoots for campus promotions.</li>
+            </ul>
+          </li>
+          <li>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; font-weight: 600;">Winner of 2025 Qualcomm &amp; Microsoft On-Device AI Hackathon</h3>
+              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+                <small><em>Northeastern University</em> <br> Mar 2025</small>
+              </div>
+            </div>
+            <ul>
+              <li>Led team “Fit-Mirror”—an interactive personal-trainer system—winning both Popular Choice &amp; Judges’ Choice.</li>
+              <li>Built a projector-based guidance app using a real-time image-recognition model on $20 hardware.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </div>
   </main>
+
+    <!--Mobile‐Only-->
+  <div style="text-align:center;">
+    <a class="download mobile-only" href="/resume.pdf" download>
+      Download PDF
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4z M5 20h14v-2H5z"/></svg>
+    </a>
+  </div>
+
 </body>
 </html>

@@ -66,6 +66,12 @@ No build tools or dependencies are required. You only need:
     serve .
     ```
 
+## Future Work
+
+TODO: Blog site is currently under construction.
+
+## License
+
 MIT License
 
 Copyright (c) 2025

@@ -38,6 +38,7 @@ Includes:
 
 ## Repository Structure
 
+```
 jxins-personal-site/
 ├── images/
 │ ├── favico/
@@ -48,7 +49,7 @@ jxins-personal-site/
 ├── index.html # Homepage (Blog & Portfolio) – Blog under construction
 ├── resume.html # HTML résumé/CV page
 └── README.md # This documentation
-
+```
 
 ## Getting-started
 

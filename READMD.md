@@ -76,6 +76,4 @@ TODO: Blog site is currently under construction.
 MIT License
 
 Copyright (c) 2025
-Permission is hereby granted, free of charge, to any person obtaining a copy
-… (rest of MIT license text) …
-
+Permission is hereby granted, free of charge, to any person obtaining a copy.

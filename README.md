@@ -70,6 +70,7 @@ No build tools or dependencies are required. You only need:
 ## Future Work
 
 TODO: Blog site is currently under construction.
+Done. Blog part is now up and running.
 
 ## License
 

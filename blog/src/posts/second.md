@@ -9,7 +9,7 @@ excerpt: >
 
 # A Career Outlook
 
-(If you care to know more about me, why not check out this self introduction video I made!!!)
+(If you care to know more about me, why not check out this self-introduction video I made!!!)
 
 <div align="center">
 
@@ -25,10 +25,13 @@ Reflecting on my recent experiences, I find myself desperate for clear direction
 
 I’ll be updating them regularly as I continue to refine my focus and reflect on my latest projects.
 
+
+
 ![pic2](/images/blog/map.png)
 
 
 ## SMART Goals
+##### last updated: July 7th, 2025
 
 ### Goal 1: Complete Kubernetes Specialization
 - **Specific:** Complete a Kubernetes dive-in to build simulated Kubernetes network.  
@@ -52,3 +55,4 @@ I’ll be updating them regularly as I continue to refine my focus and reflect o
 - **Time-Bound:** Publish all posts by **September 30, 2025**.
 
 
+![pic3](/images/blog/designComic.png)

@@ -2,13 +2,13 @@
 title: How to Build Your Own Server
 date: 2025‑06‑05
 tags: [linux, nginx, dev‑ops]
-cover: /images/blog/_a.jpg   # optional hero image
+cover: /images/blog/_a2.jpg   # optional hero image
 excerpt: >
   A guide to turn an computer into a Ubuntu server with Nginx.
 ---
 
 # How to Build Your Own Server
-![pic1](/images/blog/_a.jpg  "Title")
+![pic1](/images/blog/hosting.png  "pic1")
 
 
 Building a personal server has always been one of those project I know I will get on to someday but just don't have the time for it. At the start of this summer, I finially decided to get on to it. The process is a bit taunting if you never experienced working with a server. But trust me, it is not as difficult as you might have thought.

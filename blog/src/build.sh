@@ -77,6 +77,8 @@ for md in "$POST_SRC"/*.md; do
   title="${meta[3]}"
   date="${meta[4]}"
   cover="${meta[5]}"
+  cover=${cover//$'\r'/}            # strip any CR
+  cover=${cover%%*( )}              # strip trailing spaces (bash-extglob)
 
   body="$(pandoc --from=gfm --to=html5 "$md")"
 
@@ -98,7 +100,7 @@ sitebar='jxins – Ruixin'\''s Blog'
   write_header "$sitebar" "Blog"
   echo '<style>.back-to-blog-wrapper{display:none}</style>'
   echo '<section class="post-grid">'
-  sort -r "$TMP_INDEX" | while IFS='|' read -r slug ttl dte cov exc; do
+  sort -t'|' -k3,3r "$TMP_INDEX" | while IFS='|' read -r slug ttl dte cov exc; do
     printf '<a class="post-card" href="/blog/%s.html">\n' "$slug"
     [[ $cov ]] && printf '  <figure><img loading="lazy" src="%s" alt=""></figure>\n' "$cov" \
                || printf '  <figure></figure>\n'

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/images/favico/favicon.ico" />
-  <title>Ruixin Shi — Résumé</title>
+  <title>Ruixin (Jack) Shi — Résumé</title>
 
   <style>
     /* ─── Reset & Base Styles ───────────────────────────────────────── */
@@ -245,7 +245,7 @@
       <!-- Replace "/me/photo.jpg" with your actual photo path -->
       <img src="portrait.png" alt="Photo of Ruixin Shi">
     </div>
-    <h1>Ruixin Shi</h1>
+    <h1>Ruixin (Jack) Shi</h1>
     <p><a href="mailto:xxruixin@gmail.com">xxruixin@gmail.com</a> | 617-784-1401 | Seattle, WA</p>
   </div>
 
@@ -256,27 +256,26 @@
       <!-- Skills Section -->
       <h2>Skills</h2>
       <ul>
-        <li><strong>Programming:</strong> Python, Java, C, C#, JavaScript, TypeScript, Ocaml, Flutter</li>
-        <li><strong>Tools &amp; Frameworks:</strong> Git, MySQL, JSON, React</li>
+        <li><strong>Languages:</strong> Python, Java, Kotlin, JavaScript, TypeScript, Go, Rust, C++, SQL, Swift, Dart, Linux/Unix</li>
+        <li><strong>Frontend &amp; Desktop:</strong> React, Next.js, Electron, Flutter, HTML5/CSS3, Tailwind CSS</li>
+        <li><strong>Backend &amp; Cloud:</strong> Spring Boot, Node.js, Express, Django, Flask, REST/GraphQL, WebSocket, AWS (Lambda, EC2, S3, SES), ByteFaaS, Docker, Kubernetes, CI/CD</li>
+        <li><strong>AI / ML &amp; Agents:</strong> LLM integration, MCP, agent tooling, RAG, NLP, fine-tuning, PyTorch, Transformers, scikit-learn, OpenRouter API, ComfyUI</li>
+        <li><strong>Data &amp; Tools:</strong> MySQL, PostgreSQL, MongoDB, Redis, DynamoDB, Elasticsearch, Git, pytest, JUnit, Jest, Postman, Agile/Scrum, JIRA</li>
       </ul>
 
       <!-- Education Section -->
       <h2>Education</h2>
       <div>
-        <h3>Boston University</h3>
-        <small>Sep 2020 – May 2024<br>
-        <em>Bachelor of Arts in Computer Science</em></small>
-      </div>
-      <div style="margin-top:1rem;">
         <h3>Northeastern University</h3>
         <small>May 2024 – Present<br>
-        <em>Master of Computer Science</em></small>
+        <em>Master of Science in Computer Science</em><br>
+        Machine Learning, Distributed Systems, Mobile App Development, Assistive Robotics, Advanced Software Development</small>
       </div>
-      <div>
-        <p style="font-size:0.90rem; margin-top:1rem;">
-          <strong><em>Relevant Coursework:</em></strong><br>
-          Data Structures, Analysis of Algorithms, Software Engineering, Networking Essentials, Programming Languages, Artificial Intelligence, Computer Graphics, Operating System.
-        </p>
+      <div style="margin-top:1rem;">
+        <h3>Boston University</h3>
+        <small>Sep 2020 – May 2024<br>
+        <em>Bachelor of Arts in Computer Science</em><br>
+        Data Structures, Software Engineering, Networks, Artificial Intelligence, Computer Graphics, Operating Systems</small>
       </div>
 
       <!-- Download Button below Education -->
@@ -287,131 +286,116 @@
     </div>
 
     <!-- ─── Right Content ───────────────────────────────────── -->
-    <div class="content">
+    <div class=”content”>
+
+      <!-- Publications -->
+      <section>
+        <h2>Publications</h2>
+        <ul>
+          <li style=”font-size:0.95rem; color:#333;”>
+            C. Ming, <strong>R. Shi</strong>, Y. Hu. “NameBERT: Scaling Name-Based Nationality Classification with LLM-Augmented Open Academic Data.” <em>Canadian AI 2026 / PMLR</em> (Oral Presentation).
+          </li>
+        </ul>
+      </section>
+
+      <!-- Experience -->
+      <section>
+        <h2>Experience</h2>
+        <ul>
+          <li>
+            <div style=”display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;”>
+              <h3 style=”margin: 0; font-weight: 600;”>TikTok — Software Engineer Intern</h3>
+              <div style=”font-size: 0.95rem; font-weight: 500; text-align: right; white-space: nowrap; margin-left: 1rem;”>
+                <small><em>San Jose, CA</em> <br> May 2026 – Present</small>
+              </div>
+            </div>
+            <ul>
+              <li>Resolved a long-standing connection-sync defect between the Android client and the Electron desktop app by re-architecting the link as a master–slave protocol — eliminating state divergence entirely within the existing pipeline, with no added infrastructure.</li>
+              <li>Built an on-call assistant bot for Lark on ByteFaaS (ByteDance serverless FaaS), grounded in Lark Docs runbooks to auto-answer recurring on-call questions and cut repetitive escalations.</li>
+              <li>Engineered the bot backend for multi-instance serverless execution — message deduplication and Redis-backed shared conversation history so context survives across invocations and instances.</li>
+            </ul>
+          </li>
+          <li>
+            <div style=”display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;”>
+              <h3 style=”margin: 0; font-weight: 600;”>Air Health.co — Software Engineer Lead</h3>
+              <div style=”font-size: 0.95rem; font-weight: 500; text-align: right; white-space: nowrap; margin-left: 1rem;”>
+                <small><em>Remote</em> <br> Dec 2025 – Jul 2026</small>
+              </div>
+            </div>
+            <ul>
+              <li>Led end-to-end development of a cross-platform native mobile app in Swift (iOS) and Kotlin (Android), driving feature delivery from requirements through production deployment.</li>
+              <li>Oversaw backend migration from Vercel + Cloudflare + Supabase to AWS (Lambda, EC2, S3, SES), redesigning architecture for scalability, reduced cold-start latency, and lower operational cost.</li>
+              <li>Integrated a real-time LLM with on-device text-to-speech (TTS) pipeline, enabling dynamic voice across iOS/Android with sub-second latency.</li>
+            </ul>
+          </li>
+          <li>
+            <div style=”display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;”>
+              <h3 style=”margin: 0; font-weight: 600;”>Northeastern University — Graduate Researcher</h3>
+              <div style=”font-size: 0.95rem; font-weight: 500; text-align: right; white-space: nowrap; margin-left: 1rem;”>
+                <small><em>under Dr. Yifan Hu, Seattle, WA</em> <br> May 2025 – Present</small>
+              </div>
+            </div>
+            <ul>
+              <li>Co-authored and presented (oral) a paper at Canadian AI 2026 / PMLR; built a 1.4M-record pipeline from the Open Academic Graph and fine-tuned multilingual BERT (NameBERT), outperforming SOTA baselines (NamePrism, EthnicSeer, Name2Nat).</li>
+              <li>Designed an LLM-based augmentation pipeline for long-tail countries (~17% tail Macro-F1 gain); benchmarked vs. GPT-5 / Claude / Gemini at ~400x throughput (1,831 names/sec) and near-zero per-query cost.</li>
+            </ul>
+          </li>
+          <li>
+            <div style=”display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;”>
+              <h3 style=”margin: 0; font-weight: 600;”>Framo Media L.L.C. — AI Development Intern</h3>
+              <div style=”font-size: 0.95rem; font-weight: 500; text-align: right; white-space: nowrap; margin-left: 1rem;”>
+                <small><em>Seattle, WA</em> <br> Sep 2025 – Dec 2025</small>
+              </div>
+            </div>
+            <ul>
+              <li>Integrated AI agent tools (ComfyUI, OpenRouter API) into production media workflows, automating multi-step content generation; deployed and administered a PostgreSQL server for multi-user asset collaboration.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
       <!-- Project Experience -->
       <section>
         <h2>Project Experience</h2>
         <ul>
           <li>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <h3 style="margin: 0; font-weight: 600;">Interpreter Project</h3>
-              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
-                <small><em>Boston University</em> <br> Jan 2022 – May 2022</small>
+            <div style=”display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;”>
+              <h3 style=”margin: 0; font-weight: 600;”>Capstone Showcase Website <small style=”font-weight:400;”>— React, TypeScript, Sanity.io, Vercel</small></h3>
+              <div style=”font-size: 0.95rem; font-weight: 500; text-align: right; white-space: nowrap; margin-left: 1rem;”>
+                <small>Sep 2025 – Dec 2025</small>
               </div>
             </div>
             <ul>
-              <li>Developed an interpreter (in Ocaml) with a full parser system that lets users create their own DSL.</li>
-              <li>Designed and implemented core runtime logic, AST traversal, and error reporting.</li>
+              <li>Co-built and deployed a full-stack web platform for Northeastern capstone projects — React + TypeScript frontend, Sanity.io headless CMS, Vercel CI/CD, multi-user content management.</li>
             </ul>
           </li>
           <li>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <h3 style="margin: 0; font-weight: 600;">Auto Chess Agent</h3>
-              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
-                <small><em>Boston University</em> <br> Jan 2023 – May 2023</small>
+            <div style=”display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;”>
+              <h3 style=”margin: 0; font-weight: 600;”>UnWire — Mobile App for Local Network Chat <small style=”font-weight:400;”>— Flutter, Dart</small></h3>
+              <div style=”font-size: 0.95rem; font-weight: 500; text-align: right; white-space: nowrap; margin-left: 1rem;”>
+                <small>Sep 2024 – Dec 2024</small>
               </div>
             </div>
             <ul>
-              <li>Built a modular auto-chess AI agent in Java using Sepia (open-source framework).</li>
-              <li>Designed neural-network topology, feature extraction, and reward functions for the chess AI.</li>
-            </ul>
-          </li>
-          <li>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <h3 style="margin: 0; font-weight: 600;">Information Website of Student Roster</h3>
-              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
-                <small><em>Boston University</em> <br> May 2023 – Jun 2023</small>
-              </div>
-            </div>
-            <ul>
-              <li>Created a React web app that fetched current student data via a JSON API and displayed roster info.</li>
-              <li>Styled components with HTML/CSS/TypeScript; integrated the API on the frontend.</li>
-            </ul>
-          </li>
-          <li>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <h3 style="margin: 0; font-weight: 600;">FIFOs Scheduler OS on Linux</h3>
-              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
-                <small><em>Boston University</em> <br> Sep 2023 – Jan 2024</small>
-              </div>
-            </div>
-            <ul>
-              <li>Implemented a protected-mode, multithreaded OS kernel in C running under Linux (via GRUB).</li>
-              <li>Scheduled simulated threads in FIFO order; displayed system information through GRUB menu.</li>
-            </ul>
-          </li>
-          <li>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <h3 style="margin: 0; font-weight: 600;">Microcontroller Game w/ Gesture Recognition</h3>
-              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
-                <small><em>Boston University</em> <br> Jan 2024 – May 2024</small>
-              </div>
-            </div>
-            <ul>
-              <li>Built an Arduino-based microcontroller game using ArduCam for hand-gesture input.</li>
-              <li>Enabled real-time gesture control so users could play the mini-game on multiple Arduino modules.</li>
-            </ul>
-          </li>
-          <li>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <h3 style="margin: 0; font-weight: 600;">UnWire – Mobile App for Local Network Chat</h3>
-              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
-                <small><em>Northeastern University</em> <br> Sep 2024 – Dec 2024</small>
-              </div>
-            </div>
-            <ul>
-              <li>Developed core app structure in Flutter; managed real-time P2P chat via Bluetooth/Wi-Fi modules.</li>
-              <li>Led a small dev team and oversaw promotion/UX for the application.</li>
+              <li>Built a Flutter-based mobile app enabling real-time peer-to-peer chat over local networks without internet connectivity; designed the full application architecture and core messaging features end-to-end.</li>
             </ul>
           </li>
         </ul>
       </section>
 
-      <!-- Research Experience -->
+      <!-- Awards -->
       <section>
-        <h2>Research Experience</h2>
+        <h2>Awards</h2>
         <ul>
           <li>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <h3 style="margin: 0; font-weight: 600;">Research Assistant</h3>
-              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
-                <small><em>Dept. of Biology - Boston University</em> <br> May 2023 – May 2024</small>
-              </div>
-            </div>
-            <ul>
-              <li>Worked under Professor Jen-Wei Lin to analyze experimental data and produce publication-quality plots.</li>
-              <li>Applied custom filters and clustering methods to large biological datasets using Python tools.</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Activity Experience -->
-      <section>
-        <h2>Activity Experience</h2>
-        <ul>
-          <li>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <h3 style="margin: 0; font-weight: 600;">Graphic Coordinator</h3>
-              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
-                <small><em>BUTV10 - Boston University</em> <br> Aug 2021 – May 2024</small>
-              </div>
-            </div>
-            <ul>
-              <li>Served as Graphic Coordinator: collaborated between departments and created social-media graphics.</li>
-              <li>Arranged display cases and assisted new-program shoots for campus promotions.</li>
-            </ul>
-          </li>
-          <li>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <h3 style="margin: 0; font-weight: 600;">Winner of 2025 Qualcomm &amp; Microsoft On-Device AI Hackathon</h3>
-              <div style="font-size: 0.95rem; font-weight: 500; text-align: right;">
+            <div style=”display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;”>
+              <h3 style=”margin: 0; font-weight: 600;”>Qualcomm &amp; Microsoft On-Device AI Hackathon — Winner, Team Leader</h3>
+              <div style=”font-size: 0.95rem; font-weight: 500; text-align: right; white-space: nowrap; margin-left: 1rem;”>
                 <small><em>Northeastern University</em> <br> Mar 2025</small>
               </div>
             </div>
             <ul>
-              <li>Led team “Fit-Mirror”—an interactive personal-trainer system—winning both Popular Choice &amp; Judges’ Choice.</li>
-              <li>Built a projector-based guidance app using a real-time image-recognition model on $20 hardware.</li>
+              <li>Built Fit-Mirror, a real-time computer-vision system tracking body posture with live projection feedback. Won both Popular Choice and Judges’ Choice awards.</li>
             </ul>
           </li>
         </ul>

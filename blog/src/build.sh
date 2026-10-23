@@ -80,27 +80,34 @@ for md in "$POST_SRC"/*.md; do
   cover=${cover//$'\r'/}            # strip any CR
   cover=${cover%%*( )}              # strip trailing spaces (bash-extglob)
 
+  # ----- chronological sort key (YYYYMMDD) --------------------------
+  # normalise separators (U+2011 non‑breaking hyphen, '-', '/'), drop CR/space,
+  # then zero‑pad each part so single‑digit days sort correctly.
+  norm_date=$(printf '%s' "$date" | sed -e 's/\xe2\x80\x91/-/g' -e 's#/#-#g' | tr -d '[:space:]')
+  IFS='-' read -r dy dm dd <<<"$norm_date"
+  sortkey=$(printf '%04d%02d%02d' "$((10#${dy:-0}))" "$((10#${dm:-0}))" "$((10#${dd:-0}))")
+
   body="$(pandoc --from=gfm --to=html5 "$md")"
 
   {
-    write_header "" "$title"
+    write_header '<a href="/blog">jxins – Ruixin'\''s Blog</a>' "$title"
     [[ $cover ]] && printf '<div class="hero" style="background-image:url(%q);"></div>\n' "$cover"
     printf '<article>%s</article>\n' "$body"
     cat "$FOOTER"
   } > "$dest"
 
-  printf '%s|%s|%s|%s|%s\n' \
-         "$slug" "$title" "$date" "$cover" "$clean_excerpt" >> "$TMP_INDEX"
+  printf '%s|%s|%s|%s|%s|%s\n' \
+         "$sortkey" "$slug" "$title" "$date" "$cover" "$clean_excerpt" >> "$TMP_INDEX"
 
 done
 
 # ------------ build /blog/index.html -----------------
-sitebar='jxins – Ruixin'\''s Blog'
+sitebar='<a href="/">jxins – Ruixin'\''s</a>'
 {
   write_header "$sitebar" "Blog"
   echo '<style>.back-to-blog-wrapper{display:none}</style>'
   echo '<section class="post-grid">'
-  sort -t'|' -k3,3r "$TMP_INDEX" | while IFS='|' read -r slug ttl dte cov exc; do
+  sort -t'|' -k1,1nr "$TMP_INDEX" | while IFS='|' read -r key slug ttl dte cov exc; do
     printf '<a class="post-card" href="/blog/%s.html">\n' "$slug"
     [[ $cov ]] && printf '  <figure><img loading="lazy" src="%s" alt=""></figure>\n' "$cov" \
                || printf '  <figure></figure>\n'

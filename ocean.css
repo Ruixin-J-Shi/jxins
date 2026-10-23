@@ -1,0 +1,50 @@
+/* ASCII shark ocean behind the whole page (see js/ocean.js).
+   Dark water inside the page's hero, if it has one; below a hard line the
+   sharks turn dark grey on white. Pages without a hero are light throughout.
+   Page content must sit above the layers (position:relative; z-index:1). */
+
+html, body{ height:auto; }
+body{ min-height:100vh; }   /* keep short pages full height so the footer stays at the bottom */
+
+/* White halo that lifts text off the sharks; use as text-shadow:var(--text-halo). */
+:root{
+  --text-halo:
+    0 0 1px #fff, 0 0 2px #fff, 0 0 4px #fff, 0 0 8px #fff,
+    0 0 14px #fff, 0 0 22px #fff, 0 0 32px rgba(255,255,255,.85);
+}
+body{
+  background:transparent;  /* let the ocean show through */
+  position:relative;       /* the ocean covers the whole page and scrolls with it */
+}
+
+#ocean{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  pointer-events:none;
+  font-family:ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+  /* More contrast: brighter sharks on black, and (once inverted) darker on white. */
+  filter:brightness(1.85) contrast(1.25);
+}
+#ocean-wash, #ocean-ink{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  top:0;                   /* set by script to the hero's bottom edge */
+  z-index:0;
+  pointer-events:none;
+}
+/* Invert to dark-on-white greys... */
+#ocean-wash{
+  -webkit-backdrop-filter:invert(1) grayscale(1);
+  backdrop-filter:invert(1) grayscale(1);
+}
+/* ...then screen the ink over them: black becomes the ink, white stays paper. */
+#ocean-ink{
+  --ink:#3d3d3d;           /* shark colour on white; lighter = fainter sharks */
+  background:var(--ink);
+  mix-blend-mode:screen;
+}

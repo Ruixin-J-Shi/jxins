@@ -23,7 +23,7 @@
       #hero h2{ font-size: 1.8rem; }
 
       /* stack portrait */
-      #about {margin-bottom: -3rem; padding:2rem 1rem;background: var(--bg-light); }
+      #about {margin-bottom: -3rem; padding:2rem 1rem;background: transparent; }
 
       .about-photo{align-items:center; }
 
@@ -42,16 +42,15 @@
     }
 
       :root {
-        --accent: #6bb59f;         
-        --text-dark: #222;
-        --text-muted: #555;
+        --accent: #6bb59f;
+        --text-dark: #111;
+        --text-muted: #1c1c1c;    /* darker so text holds up over the sharks */
         --bg-light: #fafafa;
         --bg-section: #f1f1f1;
         --border-radius: 8px;
       }
 
       html, body {
-        height:100%;
         margin: 0;
         padding: 0;
         font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
@@ -64,8 +63,8 @@
         display:flex;
         flex-direction:column;   /* stack header / main / footer */
       }
-      main{  flex:1 0 auto; }    /* grows to push footer down    */
-      footer{flex-shrink:0;}  
+      main{  flex:1 0 auto; position:relative; z-index:1; }    /* grows to push footer down    */
+      footer{flex-shrink:0; position:relative; z-index:1;}
 
       /* ------------ Header ------------ */
       header{
@@ -75,7 +74,7 @@
         justify-content:space-between;
         align-items:center;
         padding:1rem 2rem;
-        background: rgba(255,255,255,.50);
+        background: rgba(255,255,255,.88);
         backdrop-filter:blur(6px);
         box-shadow:0 2px 6px rgba(0,0,0,.08);z-index:100
       }
@@ -127,17 +126,6 @@
         height:55vh;
         min-height:300px;
         margin-top:59px;
-        
-        background:linear-gradient(
-          60deg,
-          #ff7b7b,
-          #ffd36b,
-          #6bffcf,
-          #6b83ff,
-          #ff6bf2
-        );
-        background-size:
-          600% 600%;animation:gradient 20s ease-in-out infinite; 
         padding:
           1rem;border-bottom:4px solid #e5e5e5
       }
@@ -152,27 +140,30 @@
         margin:.5rem 0;
         font-size:2.1rem;
         letter-spacing:.5px;
-        color:#111
+        color:#fff;
+        text-shadow:0 2px 12px #000
       }
 
       #hero a{
         margin-top:1.25rem;
         display:inline-block;
         padding:.6rem 1.3rem;
-        border:2px solid #333;
+        border:2px solid #fff;
         border-radius:4px;
         font-weight:600;
         text-decoration:none;
-        color:#333;transition:background .3s,color .3s
+        color:#fff;
+        background:rgba(0,0,0,.55);
+        transition:background .3s,color .3s
       }
 
       #hero a:hover{
-        background:#333;
-        color:#fff
+        background:#fff;
+        color:#000
       }
 
       /* ------------ About section ------------ */
-      #about {margin-top: 3rem; padding:2rem 1rem;background: var(--bg-light); }
+      #about {margin-top: 3rem; padding:2rem 1rem;background: transparent; }
       #about .about-flex {
         display: flex;
         gap: 2rem;
@@ -185,6 +176,11 @@
         font-size: 3rem;
       }
       .about-text p { color: var(--text-muted); line-height: 1.6; }
+
+      /* White halo behind text on the light ocean, so sharks can stay visible. */
+      #about h2, .about-text p, .about-links a, #instagram h2{
+        text-shadow:var(--text-halo);   /* from ocean.css */
+      }
 
       .about-flex {                 
         align-items: flex-start;    
@@ -213,7 +209,7 @@
       .about-photo img { width: 100%; height: auto; display: block; }
 
       /* ------------ Instagram ------------ */
-      #instagram{margin: 1rem auto 4rem; padding:auto ;background:#ffffff;}
+      #instagram{margin: 1rem auto 4rem; padding:auto ;background:transparent;}
 
       #instagram h2 {
         font-size: 2.5rem;   /* <— adjust to taste (rem / px / vw) */
@@ -349,6 +345,7 @@
         .link-cards a { width: 150px; height: 100px; }
       }
     </style>
+    <link rel="stylesheet" href="/ocean.css">
   </head>
 
   <body>
@@ -492,6 +489,12 @@
     <div id="lightbox" class="lightbox">
       <img src="" alt="enlarged">
     </div>
+
+    <!-- ASCII sharks behind the page -->
+    <script type="module">
+      import { startOcean } from "/js/ocean.js";
+      startOcean({ hero: "#hero", obstacles: ".about-photo, .gallery" });
+    </script>
 
     <!-- Lightbox script -->
     <script>

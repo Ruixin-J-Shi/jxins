@@ -233,7 +233,13 @@
                       justify-content: center; 
                     }
     }
+
+    /* ─── Shark ocean behind the page (ocean.css / js/ocean.js) ───────── */
+    .cv-header, main, body > div{ position: relative; z-index: 1; }
+    .cv-header, main{ text-shadow: var(--text-halo); }
+    .download:hover{ text-shadow: none; }
   </style>
+  <link rel="stylesheet" href="/ocean.css">
 </head>
 
 <body>
@@ -313,7 +319,7 @@
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <h3 style="margin: 0; font-weight: 600;">TikTok — Software Engineer Intern</h3>
               <div style="font-size: 0.95rem; font-weight: 500; text-align: right; white-space: nowrap; margin-left: 1rem;">
-                <small><em>San Jose, CA</em> <br> May 2026 – Present</small>
+                <small><em>San Jose, CA</em> <br> Jun 2026 – Sep 2026</small>
               </div>
             </div>
             <ul>
@@ -418,5 +424,15 @@
     </a>
   </div>
 
+  <!-- ASCII sharks behind the page -->
+  <script type="module">
+    import { startOcean } from "/js/ocean.js";
+    // Sharks swim around the photo and the text; a bit smaller so they fit the gaps.
+    startOcean({
+      obstacles: ".cv-header .avatar, .cv-header h1, .cv-header p, main h2, main li, main p, main .download",
+      sharkSize: 0.85,
+      avoidance: 15,
+    });
+  </script>
 </body>
 </html>

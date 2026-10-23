@@ -106,6 +106,10 @@ sitebar='<a href="/">jxins – Ruixin'\''s</a>'
 {
   write_header "$sitebar" "Blog"
   echo '<style>.back-to-blog-wrapper{display:none}</style>'
+  # ASCII sharks behind the blog index only (not individual posts); they swim around the cards.
+  echo '<link rel="stylesheet" href="/ocean.css">'
+  echo '<style>main,footer{position:relative;z-index:1}</style>'
+  echo '<script type="module">import { startOcean } from "/js/ocean.js"; startOcean({ obstacles: ".post-card" });</script>'
   echo '<section class="post-grid">'
   sort -t'|' -k1,1nr "$TMP_INDEX" | while IFS='|' read -r key slug ttl dte cov exc; do
     printf '<a class="post-card" href="/blog/%s.html">\n' "$slug"

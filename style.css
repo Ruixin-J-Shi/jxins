@@ -112,6 +112,33 @@ footer h3{margin-top:0;font-size:1.1rem;}
 footer a{color:#9be2d0;text-decoration:none;}
 footer a:hover{text-decoration:underline;}
 
+/* ===== markdown link ========================================== */
+main a{
+  color:#789aa1;          
+  text-decoration:none;   /* kill the always-on underline */
+  font-weight:500;        /* optional – makes text bolder */
+  position:relative;
+}
+
+/* —— animated underline on hover / focus —— */
+main a::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-2px;
+  height:2px;
+  background:currentColor;      /* matches the text colour */
+  transform:scaleX(0);
+  transition:transform .25s ease;
+}
+main a:hover::after,
+main a:focus-visible::after{
+  transform:scaleX(1);
+}
+
+/* —— visited-state tint (optional) —— */
+main a:visited{
+  color:#3f5573;         
+}
+
 /* ===== TABLET BREAKPOINT (1024px and below) ================== */
 @media (max-width: 1024px) {
   .post-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1.5rem;}
